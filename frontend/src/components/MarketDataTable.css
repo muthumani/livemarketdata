@@ -1,0 +1,368 @@
+.market-data-table-container {
+  background-color: var(--card-background);
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  margin-bottom: 2rem;
+}
+
+.filter-toolbar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--card-background);
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filter-group label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.filter-group select {
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  border: 1px solid var(--border-color);
+  background-color: var(--card-background);
+  color: var(--text-primary);
+  font-size: 0.875rem;
+}
+
+.no-data-message {
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .filter-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .filter-group {
+    width: 100%;
+  }
+  
+  .filter-group select {
+    flex: 1;
+  }
+}
+
+/* Market Data Table Styles */
+.market-data-container {
+  padding: 1rem;
+  background-color: var(--card-background);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Filter controls */
+.filter-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.search-box {
+  flex: 1;
+  min-width: 200px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--input-background);
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px var(--primary-color-light);
+}
+
+.signal-filter {
+  display: flex;
+  align-items: center;
+}
+
+.signal-filter label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+}
+
+.signal-filter select {
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--input-background);
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.signal-filter select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px var(--primary-color-light);
+}
+
+.value-cell {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.25rem;
+  padding: 0.25rem 0;
+  transition: all 0.2s ease-in-out;
+}
+
+.value-cell.value-changed {
+  animation: highlight 1s ease-in-out;
+}
+
+@keyframes highlight {
+  0% {
+    background-color: var(--highlight-color);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+.change-indicator {
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+.change-indicator.up {
+  color: var(--success-color);
+}
+
+.change-indicator.down {
+  color: var(--error-color);
+}
+
+.positive-value {
+  color: var(--success-color);
+}
+
+.negative-value {
+  color: var(--error-color);
+}
+
+.symbol-cell {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* Update hover styles */
+.rdt_TableRow:hover {
+  background-color: var(--hover-background) !important;
+}
+
+.rdt_TableRow:hover .symbol-cell {
+  color: rgb(205, 202, 50) !important;
+}
+
+.rdt_TableRow:hover .value-cell {
+  color: rgb(205, 202, 50) !important;
+}
+
+.rdt_TableRow:hover .positive-value {
+  color: var(--success-color) !important;
+}
+
+.rdt_TableRow:hover .negative-value {
+  color: var(--error-color) !important;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .filter-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .search-box,
+  .signal-filter {
+    width: 100%;
+  }
+  
+  .signal-filter label {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .signal-filter select {
+    width: 60%;
+  }
+}
+
+/* Loading indicator */
+.loader {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border: 0.25rem solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top-color: var(--primary-color);
+  animation: spin 1s linear infinite;
+  margin: 2rem auto;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* No data message */
+.no-data {
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+/* Value change indicators */
+.value-cell {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  transition: all 0.3s ease;
+}
+
+/* Only apply color coding to Change and Change% columns */
+.value-cell.positive-value {
+  color: #22c55e;
+  font-weight: 500;
+}
+
+.value-cell.negative-value {
+  color: #ef4444;
+  font-weight: 500;
+}
+
+.value-changed {
+  animation: highlight 1s ease-out;
+}
+
+.change-up {
+  color: var(--positive-color);
+  font-weight: 600;
+}
+
+.change-down {
+  color: var(--negative-color);
+  font-weight: 600;
+}
+
+@keyframes highlight {
+  0% {
+    background-color: rgba(59, 130, 246, 0.1);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+/* Change direction indicators */
+.change-indicator {
+  font-size: 0.875rem;
+  margin-left: 2px;
+}
+
+.change-indicator.up {
+  color: #22c55e;
+}
+
+.change-indicator.down {
+  color: #ef4444;
+}
+
+/* Signal colors and animations */
+.signal-cell {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.signal-buy {
+  background-color: rgba(34, 197, 94, 0.1);
+  color: #22c55e;
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.signal-sell {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.signal-hold {
+  background-color: rgba(156, 163, 175, 0.1);
+  color: #9ca3af;
+  border: 1px solid rgba(156, 163, 175, 0.2);
+}
+
+.signal-cell.changed {
+  animation: pulse 0.5s ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Change color indicators */
+.positive-change {
+  color: var(--positive-color);
+  font-weight: 600;
+}
+
+.negative-change {
+  color: var(--negative-color);
+  font-weight: 600;
+}
+
+/* Table row hover effects */
+tr:hover .value-cell {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+tr:hover .signal-cell {
+  transform: scale(1.02);
+} 

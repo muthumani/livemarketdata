@@ -1,0 +1,130 @@
+.header {
+  background-color: var(--card-background);
+  box-shadow: var(--shadow);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.logo h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.market-status {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.market-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.indicator-label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.indicator-value {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.indicator-value.connected {
+  color: #22c55e;
+}
+
+.indicator-value.disconnected {
+  color: #ef4444;
+}
+
+/* NIFTY50 Index specific styles */
+.nifty-index .indicator-value {
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nifty-index .indicator-value.positive-value {
+  color: #22c55e;
+}
+
+.nifty-index .indicator-value.negative-value {
+  color: #ef4444;
+}
+
+.nifty-index .change-indicator {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.nifty-index .change-indicator.up {
+  color: #22c55e;
+}
+
+.nifty-index .change-indicator.down {
+  color: #ef4444;
+}
+
+.nifty-index .change-value {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.refresh-button {
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.refresh-button:hover {
+  background-color: var(--hover-background);
+  transform: rotate(180deg);
+}
+
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .market-status {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  
+  .market-indicator {
+    width: 100%;
+    justify-content: space-between;
+  }
+} 
