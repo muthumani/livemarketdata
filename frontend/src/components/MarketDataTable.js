@@ -354,7 +354,7 @@ function MarketDataTable({ marketData }) {
       highlightOnHoverStyle: {
         backgroundColor: 'var(--hover-background)',
         borderBottomColor: 'var(--border-color)',
-        outline: '1px solid var(--border-color)',
+        outline: '0px solid var(--border-color)',
         transition: 'all 0.2s ease-in-out',
         color: 'var(--text-hover)', // Brighter text color on hover
       },
