@@ -183,10 +183,11 @@
 /* Update hover styles */
 .rdt_TableRow:hover {
   background-color: var(--hover-background) !important;
+  font-size-adjust: 0.65;
 }
 
 .rdt_TableRow:hover .symbol-cell {
-  color: rgb(205, 202, 50) !important;
+  color: rgb(250, 170, 50) !important;
 }
 
 .rdt_TableRow:hover .value-cell {
